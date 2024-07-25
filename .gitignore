@@ -1,0 +1,45 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Directorios de desarrollo
+node_modules/
+vendor/
+venv/
+__pycache__/
+
+
+# Archivos de configuración de editores
+*.sublime-project
+*.sublime-workspace
+.vscode/
+.idea/
+
+# Archivos de compilación
+*.class
+*.log
+*.pyc
+*.pyo
+*.swp
+*.swo
+*.bak
+
+# Configuración de entorno
+.env
+
+# Archivos temporales
+*.tmp
+*.temp
+*.out
+*.log
+
+# Archivos de empaquetado
+*.zip
+*.tar.gz
+*.rar
+
+# Dependencias de python
+pip-log.txt
+pip-delete-this-directory.txt
+
+estudiantes/mv_estudiantes/
