@@ -3,7 +3,10 @@ import time
 from playwright.sync_api import Page, expect, Playwright, sync_playwright
 
 #comando exe pytest --slowmo 750 --headed input2.py
-#FUNCION PRINCIPAL DEL TEST
+#FUNCIÓN PRINCIPAL DEL TEST
+    #==============================================================================================
+    # SE PROBARA LOS CUADROS DE TEXTO 
+    #==============================================================================================
 #def test_input2(page: Page):
 def test_input2(playwright: Playwright) -> None:
     # Inicia el navegador Chromium en modo no headless (mostrando la ventana) con un retraso 500ms
@@ -61,7 +64,7 @@ def test_input2(playwright: Playwright) -> None:
         page.locator('//*[@id="submit"]').click()
     else:
         # Si el botón no se encuentra, imprime un mensaje
-        print("No se encontro el boton")
+        print("No se encontró el botón")
      #Verifica que la URL de la página sea la esperada después del envío
     expect(page).to_have_url("https://demoqa.com/text-box")
     #variable del resumen con su id

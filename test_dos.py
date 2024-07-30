@@ -22,7 +22,7 @@ def test_dos(page: Page):
 
     # text box full name
 
-    page.locator('#userName').fill('cristian ruiz')
+    page.locator('#userName').fill('Cristian Ruiz')
     page.screenshot(path='capturas/test_dos/_text_box_full_name.png')
 
     # text box email
@@ -31,10 +31,10 @@ def test_dos(page: Page):
     page.screenshot(path='capturas/test_dos/_text_box_email.png')
 
     #current adreess
-    page.locator("//TEXTAREA[@id='currentAddress']").fill('adreess uno')
-    page.screenshot(path='capturas/test_dos/_text_box_curadreess.png')
-    #permanent adreess
-    page.locator('#permanentAddress').fill('adreess dos')
+    page.locator("//TEXTAREA[@id='currentAddress']").fill('address uno')
+    page.screenshot(path='capturas/test_dos/_text_box_curaddress.png')
+    #permanent address
+    page.locator('#permanentAddress').fill('address dos')
     page.screenshot(path='capturas/test_dos/_text_box_permadress.png')
     #button submit
     page.locator('#submit').click()
