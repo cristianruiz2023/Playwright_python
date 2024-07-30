@@ -4,12 +4,12 @@ from playwright.sync_api import Playwright, sync_playwright, expect
 
 
 def test_checkbox_data(playwright: Playwright) -> None:
-    browser=playwright.chromium.launch(headless=False, slow_mo=70)
+    browser=playwright.chromium.launch(headless=False, slow_mo=180)
     # Crea un nuevo contexto de navegador con un tamaño de ventana específico
     #  configurado para grabar video
     context=browser.new_context(
         viewport={'width':1500, 'height':800},
-        #record_video_dir="videos/checkbox"
+        record_video_dir="videos/checkbox"
     )
     #Se crea el context
     page = context.new_page()
@@ -25,17 +25,15 @@ def test_checkbox_data(playwright: Playwright) -> None:
     # Selecciona uno por uno
     for i in range(2,12):
         page.locator(f"(//input[contains(@type,'checkbox')])[{i}]").check()
-        time.sleep(0.5)
-
+        #time.sleep(0.5)
     # Selecciona cada 3 
     for i in range(2,12,2):
         page.locator(f"(//input[contains(@type,'checkbox')])[{i}]").check()
-        time.sleep(0.5)
-
+        #time.sleep(0.5)
     # Cada 3 seleccionados cambia la pagina
     for i in range(2,12):
         page.locator(f"(//input[contains(@type,'checkbox')])[{i}]").click()
-        time.sleep(0.5)
+        #time.sleep(0.5)
         if i == 4:
             page.locator("//button[@class='dt-paging-button'][contains(.,'2')]").click()
         if i == 7:
@@ -57,20 +55,16 @@ def test_checkbox_data(playwright: Playwright) -> None:
                             page.locator("//button[@class='dt-paging-button'][contains(.,'4')]").click()
                             for q in range(2,12):
                                 page.locator(f"(//input[contains(@type,'checkbox')])[{q}]").check()
-    
-    page.locator("//input[contains(@type,'search')]").fill("London")
-    page.locator("(//input[@class='dt-select-checkbox'])[4]").click()
-    time.sleep(2)
-
-
     # Recorre las páginas y selecciona los checkboxes con optimización
-    for page_num in range(1, 5):
+    for page_num in range(2, 6):
         for i in range(2, 12):
             page.locator(f"(//input[contains(@type,'checkbox')])[{i}]").check()
-        #if page_num < 4:
-            #page.locator(f"//button[@class='dt-paging-button'][contains(.,'{page_num + 1}')]").click()
+        if page_num < 5:
+            page.locator(f"//button[@class='dt-paging-button'][contains(.,'{page_num}')]").click()
 
-
+    page.locator("//input[contains(@type,'search')]").fill("London")
+    page.locator("(//input[@class='dt-select-checkbox'])[4]").click()
+    page.wait_for_timeout(1000)
 
     context.close()
     browser.close()
